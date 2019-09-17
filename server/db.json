@@ -1,0 +1,54 @@
+{
+	"users": [
+		{
+			"id": 1,
+			"first_name": "jude",
+			"last_name": "okafor",
+			"email": "judeokafor@gmail.com",
+			"password": "password"
+		},
+		{
+			"id": 2,
+			"first_name": "Steve",
+			"last_name": "Palmer",
+			"email": "steve@codingthesmartway.com",
+			"password": "password"
+		}
+	],
+	"accounts": [
+		{
+			"id": 1,
+			"userId": 1,
+			"account_type": "savings",
+			"account_number": "3054611518",
+			"account_name": "School Fees",
+			"account_balance": 15000
+		},
+		{
+			"id": 2,
+			"userId": 2,
+			"account_type": "premium savings",
+			"account_number": "0162032476",
+			"account_name": "House Rent",
+			"account_balance": 5000
+		}
+	],
+	"transaction": [
+		{
+			"id": 1,
+			"transaction_id": "54cabdee123bcajsai",
+			"transaction_type": "credit",
+			"userId": 1,
+			"accountId": 1,
+			"amount": 2000
+		},
+		{
+			"id": 2,
+			"transaction_id": "5cabbwisiwazascfi",
+			"transaction_type": "debit",
+			"userId": 1,
+			"accountId": 2,
+			"amount": 3000
+		}
+	]
+}

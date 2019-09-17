@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/materia/bootstrap.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <title>Dashboard</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+    <div class="container">
+      <a class="navbar-brand text-success" href="#">SaveMore</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="">
+              <div class="mx-auto d-block">
+                <span>Wallet Balance: </span> <span class="font-weight-bold text-success">&#8358;50000</span>
+              </div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" data-toggle="tooltip" data-placement="bottom" title="User Profile">
+              <div class="mx-auto d-block">
+                <img src="../images/svg/user.svg" class="img-fluid" alt="" width="30" height="30">
+              </div>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link text-danger" href="">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section class="container h-100">
+    <div class="row h-100 align-items-center justify-content-center">
+      <div class="col-12 col-md-8">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="boxes m-3 rounded">
+              <div class="card card-body">
+                <div class="text-center p-1">
+                  <img src="../images/svg/deposit.svg" class="img-fluid " width="50" height="50">
+                </div>
+                <h3 class="text-center p-2">New Account</h3>
+                <button class="btn btn-danger btn-md p-2" data-toggle="modal" data-target="#createModal">Create</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="boxes m-3 rounded">
+              <div class="card card-body">
+                <div class="text-center p-1">
+                  <img src="../images/svg/withdrawal.svg" class="img-fluid " width="50" height="50">
+                </div>
+                <h3 class="text-center p-2">Start Saving Now</h3>
+                <button class="btn color-blue btn-md p-2" data-toggle="modal"
+                  data-target="#depositModal">Deposit</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="boxes m-3 rounded">
+              <div class="card card-body">
+                <div class="text-center p-1">
+                  <img src="../images/svg/withdraw.svg" class="img-fluid " width="50" height="50">
+                </div>
+                <h3 class="text-center p-2">Retrieve Cash</h3>
+                <button class="btn btn-warning btn-md p-2" data-toggle="modal"
+                  data-target="#withdrawModal">Withdraw</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="boxes m-3 rounded">
+              <div class="card card-body">
+                <div class="text-center p-1">
+                  <img src="../images/svg/transaction.svg" class="img-fluid " width="50" height="50">
+                </div>
+                <h3 class="text-center p-2">All Transactions</h3>
+                <button data-toggle="modal" data-target="#transactionModal"
+                  class="btn view-transaction btn-md p-2">View</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  </section>
+  <!-- floating button -->
+  <div class="fixed-float-button" data-toggle="modal" data-target="#updateAcctModal">
+    <button class="btn rounded-circle bg-light-green" data-toggle="tooltip" data-placement="top" title="Update Account">
+      <img src="../images/svg/resume.svg" alt="" class="img-fluid" width="50" height="50">
+    </button>
+  </div>
+  <!--Update Account Modal -->
+  <div class="modal fade" id="updateAcctModal" tabindex="-1" role="dialog" aria-labelledby="updateAcctModal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Update Account</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;">
+            <img src="../images/svg/error.svg" class="img-fluid" width="20" height="20" alt="">
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="account_type">Select Account</label>
+              <select class="form-control" id="account_type">
+                <option>School fees</option>
+                <option>House rent</option>
+              </select>
+            </div>
+          </form>
+          <!-- partial hidden tabs -->
+          <div class="mt-2 d-none">
+            <form>
+              <div class="form-group">
+                <label for="purpose">Account Name</label>
+                <input class="form-control" id="account_name" value="School fees" />
+              </div>
+              <div class="form-group">
+                <label for="account_type">Account Type</label>
+                <select class="form-control" id="account_type">
+                  <option>Savings</option>
+                  <option>Premium Savings</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="purpose">Account Purpose</label>
+                <textarea class="form-control" id="purpose" cols="20"
+                  rows="5">To save up 1million for my masters before december 2019</textarea>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success">
+            Update <i class="fas fa-pencil-alt ml-1"></i>
+          </button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Create New Account Modal -->
+  <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Create New Account</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;">
+            <img src="../images/svg/error.svg" class="img-fluid" width="20" height="20" alt="">
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="purpose">Account Name</label>
+              <input class="form-control" id="account_name" />
+            </div>
+            <div class="form-group">
+              <label for="account_type">Account Type</label>
+              <select class="form-control" id="account_type">
+                <option>Savings</option>
+                <option>Premium Savings</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="purpose">Account Purpose</label>
+              <textarea class="form-control" id="purpose" cols="20" rows="5"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-danger">
+            Create <i class="fas fa-plus"></i>
+          </button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Deposit Modal -->
+  <div class="modal fade" id="depositModal" tabindex="-1" role="dialog" aria-labelledby="depositModal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Deposit</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;">
+            <img src="../images/svg/error.svg" class="img-fluid" width="20" height="20" alt="">
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="account_type">Account Name</label>
+              <select class="form-control" id="account_name">
+                <option>
+                  School Fees
+                </option>
+                <option>
+                  House Rent
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="amount">Deposit Amount</label>
+              <input type="text" class="form-control" id="amount">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn color-blue">
+            Deposit <i class="fas fa-coins"></i>
+          </button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Withdraw Modal -->
+  <div class="modal fade" id="withdrawModal" tabindex="-1" role="dialog" aria-labelledby="withdrawModal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Withdraw</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;">
+            <img src="../images/svg/error.svg" class="img-fluid" width="20" height="20" alt="">
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="account_type">Account Name</label>
+              <select class="form-control" id="account_name">
+                <option>
+                  School Fees
+                </option>
+                <option>
+                  House Rent
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="amount">Withdrawal Amount</label>
+              <input type="text" class="form-control" id="amount">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-warning">
+            <!-- Withdraw <img src="../images/svg/piggy-bank.svg" alt="" width="20" height="20" class="img-fluid"> -->
+            Withdraw <i class="fas fa-hand-holding-usd"></i>
+          </button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Transaction Modal -->
+  <div class="modal fade" id="transactionModal" tabindex="-1" role="dialog" aria-labelledby="transactionModal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Transactions</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;">
+            <img src="../images/svg/error.svg" class="img-fluid" width="20" height="20" alt="">
+          </button>
+        </div>
+        <div class="modal-body">
+          <nav class="success">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active m-2" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                aria-controls="nav-home" aria-selected="true">All Transactions</a>
+              <a class="nav-item nav-link m-2" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                aria-controls="nav-profile" aria-selected="false">Credit Transaction</a>
+              <a class="nav-item nav-link m-2" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+                aria-controls="nav-contact" aria-selected="false">Debit Transactions</a>
+            </div>
+          </nav>
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Transaction id</th>
+                    <th scope="col">Account Name</th>
+                    <th scope="col">Transaction Type</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">54cabdee123bcajsai</th>
+                    <td>School Fees</td>
+                    <td>Debit</td>
+                    <td class="text-danger">50000</td>
+                    <td>Sept 19 2019, 2:01pm</td>
+                    <td>
+                      <i class="far fa-trash-alt clickable text-danger" data-toggle="tooltip" data-placement="right"
+                        title="Delete Transaction"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">54cabdee123bcajsai</th>
+                    <td>School Fees</td>
+                    <td>Credit</td>
+                    <td class="text-success">50000</td>
+                    <td>Sept 19 2019, 2:01pm</td>
+                    <td>
+                      <i class="far fa-trash-alt clickable text-danger" data-toggle="tooltip" data-placement="right"
+                        title="Delete Transaction"></i>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Transaction id</th>
+                    <th scope="col">Account Name</th>
+                    <th scope="col">Transaction Type</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">54cabdee123bcajsai</th>
+                    <td>School Fees</td>
+                    <td>Credit</td>
+                    <td class="text-success">50000</td>
+                    <td>Sept 19 2019, 2:01pm</td>
+                    <td>
+                      <i class="far fa-trash-alt clickable text-danger" data-toggle="tooltip" data-placement="right"
+                        title="Delete Transaction"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">54cabdee123bcajsai</th>
+                    <td>School Fees</td>
+                    <td>Credit</td>
+                    <td class="text-success">50000</td>
+                    <td>Sept 19 2019, 2:01pm</td>
+                    <td>
+                      <i class="far fa-trash-alt clickable text-danger" data-toggle="tooltip" data-placement="right"
+                        title="Delete Transaction"></i>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+
+            </div>
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Transaction id</th>
+                    <th scope="col">Account Name</th>
+                    <th scope="col">Transaction Type</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">54cabdee123bcajsai</th>
+                    <td>School Fees</td>
+                    <td>Debit</td>
+                    <td class="text-danger">50000</td>
+                    <td>Sept 19 2019, 2:01pm</td>
+                    <td>
+                      <i class="far fa-trash-alt clickable text-danger" data-toggle="tooltip" data-placement="right"
+                        title="Delete Transaction"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">54cabdee123bcajsai</th>
+                    <td>School Fees</td>
+                    <td>Debit</td>
+                    <td class="text-danger">50000</td>
+                    <td>Sept 19 2019, 2:01pm</td>
+                    <td>
+                      <i class="far fa-trash-alt clickable text-danger" data-toggle="tooltip" data-placement="right"
+                        title="Delete Transaction"></i>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <span class="text-danger clickable" data-dismiss="modal">back</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+
+</html>

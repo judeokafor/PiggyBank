@@ -1,0 +1,65 @@
+.masthead {
+	height: 100vh;
+	min-height: 500px;
+	background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+	/* background-image: url('../images/buy-cash-coins-9660.jpg'); */
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+label {
+	font-weight: bold;
+}
+.color-blue {
+	background-color: #9bc9ff;
+}
+.color-blue:hover {
+	background-color: #83baf8;
+}
+.color-withdraw {
+	background-color: #ffa733;
+	color: #00bb77;
+}
+.view-transaction {
+	background-color: #c996e8;
+}
+.view-transaction:hover {
+	background-color: #d4a4f1;
+}
+.fixed-float-button {
+	position: fixed;
+	width: 60px;
+	height: 60px;
+	bottom: 30px;
+	right: 30px;
+	text-align: center;
+}
+.bg-light-green:hover {
+	background-color: #4caf50;
+}
+.bg-light-green {
+	background-color: #86db89;
+}
+.clickable {
+	cursor: pointer;
+}
+/* nav tabs styling */
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-link.active:focus {
+	border: none;
+	-webkit-box-shadow: inset 0 -2px 0 #4caf50;
+	box-shadow: inset 0 -2px 0 #4caf50;
+	color: #4caf50;
+}
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus:hover {
+	background-color: transparent;
+	-webkit-box-shadow: inset 0 -2px 0 #4caf50;
+	box-shadow: inset 0 -2px 0 #4caf50;
+	color: #4caf50;
+}
+.nav-tabs .nav-link.active:hover,
+.nav-tabs .nav-link.active:focus:hover {
+	border: none;
+	color: #0cf014;
+}
