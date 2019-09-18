@@ -1,54 +1,107 @@
 {
-	"users": [
-		{
-			"id": 1,
-			"first_name": "jude",
-			"last_name": "okafor",
-			"email": "judeokafor@gmail.com",
-			"password": "password"
-		},
-		{
-			"id": 2,
-			"first_name": "Steve",
-			"last_name": "Palmer",
-			"email": "steve@codingthesmartway.com",
-			"password": "password"
-		}
-	],
-	"accounts": [
-		{
-			"id": 1,
-			"userId": 1,
-			"account_type": "savings",
-			"account_number": "3054611518",
-			"account_name": "School Fees",
-			"account_balance": 15000
-		},
-		{
-			"id": 2,
-			"userId": 2,
-			"account_type": "premium savings",
-			"account_number": "0162032476",
-			"account_name": "House Rent",
-			"account_balance": 5000
-		}
-	],
-	"transaction": [
-		{
-			"id": 1,
-			"transaction_id": "54cabdee123bcajsai",
-			"transaction_type": "credit",
-			"userId": 1,
-			"accountId": 1,
-			"amount": 2000
-		},
-		{
-			"id": 2,
-			"transaction_id": "5cabbwisiwazascfi",
-			"transaction_type": "debit",
-			"userId": 1,
-			"accountId": 2,
-			"amount": 3000
-		}
-	]
+  "users": [
+    {
+      "id": 1,
+      "first_name": "jude",
+      "last_name": "okafor",
+      "email": "okaforjudechukwuebuka@gmail.com",
+      "password": "password"
+    },
+    {
+      "email": "jude@gmail.com",
+      "password": "password",
+      "id": 2
+    },
+    {
+      "email": "mocidekuz@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "id": 3
+    },
+    {
+      "email": "dexe@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "id": 4
+    },
+    {
+      "email": "estther@gmail.com",
+      "password": "esther",
+      "id": 5
+    }
+  ],
+  "accounts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "account_type": "savings",
+      "account_number": "3054611518",
+      "account_name": "Daughter School fees",
+      "account_balance": 429,
+      "purpose": "Save my school fees before end of 2019"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "account_type": "premium savings",
+      "account_number": "0162032476",
+      "account_name": "House Rent",
+      "account_balance": 0,
+      "purpose": "House rent before end of 2020"
+    },
+    {
+      "userId": 5,
+      "account_name": "Stella Mcclain",
+      "purpose": "Asperiores amet qui",
+      "account_type": "Premium Savings",
+      "account_number": "PR/JL/275738197",
+      "account_balance": 7,
+      "id": 3
+    }
+  ],
+  "transaction": [
+    {
+      "id": 1,
+      "transaction_id": "54cabdee123bcajsai",
+      "transaction_type": "credit",
+      "userId": 1,
+      "accountId": 1,
+      "amount": 2000,
+      "date": "24th August 2018, 2.03pm"
+    },
+    {
+      "id": 2,
+      "transaction_id": "5cabbwisiwazascfi",
+      "transaction_type": "debit",
+      "userId": 1,
+      "accountId": 2,
+      "amount": 3000,
+      "date": "24th August 2018, 2.03pm"
+    },
+    {
+      "userId": 5,
+      "amount": 27,
+      "accountId": "3",
+      "transaction_type": "credit",
+      "transaction_id": "e423e894945677d4",
+      "date": "9/18/2019, 2:43:24 PM",
+      "id": 3
+    },
+    {
+      "userId": 5,
+      "amount": 20,
+      "accountId": "3",
+      "transaction_type": "debit",
+      "transaction_id": "7ed80694c94851b2",
+      "date": "Wed Sep 18 2019",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "amount": 8,
+      "accountId": "1",
+      "transaction_type": "debit",
+      "transaction_id": "edf7f9f89dcdd5a0",
+      "date": "Wed Sep 18 2019",
+      "id": 5
+    }
+  ]
 }
