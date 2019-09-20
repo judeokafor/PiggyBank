@@ -25,14 +25,18 @@ $('form').addEventListener(
 					`http://localhost:3000/users?email=${data.email}`
 				);
 				if (result.length !== 0) {
-					localStorage.setItem('user', JSON.stringify(result[0]));
-					ui.showAlert('Login Successfully', 'alert alert-success');
-					setTimeout(() => {
-						location.href = '../views/dashboard.html';
-					}, 3000);
+					if (result[0].password === password) {
+						localStorage.setItem('user', JSON.stringify(result[0]));
+						ui.showAlert('Login Successfully', 'alert alert-success');
+						setTimeout(() => {
+							location.href = '../views/dashboard.html';
+						}, 3000);
+					} else {
+						ui.showAlert('Invalid password', 'alert alert-danger');
+					}
 				} else {
 					ui.showAlert(
-						'Failed attempt, please try again',
+						'Failed attempt, user does not exist',
 						'alert alert-danger'
 					);
 				}

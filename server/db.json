@@ -13,95 +13,106 @@
       "id": 2
     },
     {
-      "email": "mocidekuz@mailinator.com",
-      "password": "Pa$$w0rd!",
+      "email": "j@gmail.com",
+      "password": "pass",
       "id": 3
-    },
-    {
-      "email": "dexe@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "id": 4
-    },
-    {
-      "email": "estther@gmail.com",
-      "password": "esther",
-      "id": 5
     }
   ],
   "accounts": [
-    {
-      "id": 1,
-      "userId": 1,
-      "account_type": "savings",
-      "account_number": "3054611518",
-      "account_name": "Daughter School fees",
-      "account_balance": 429,
-      "purpose": "Save my school fees before end of 2019"
-    },
     {
       "id": 2,
       "userId": 1,
       "account_type": "premium savings",
       "account_number": "0162032476",
-      "account_name": "House Rent",
-      "account_balance": 0,
-      "purpose": "House rent before end of 2020"
+      "account_name": "House Rent according to my plan",
+      "account_balance": 7892,
+      "purpose": "House rent before end of 2029 and beyond ",
+      "createdAt": "24th August 2019, 2.03pm"
     },
     {
-      "userId": 5,
-      "account_name": "Stella Mcclain",
-      "purpose": "Asperiores amet qui",
+      "userId": 3,
+      "account_name": "Charity Holt",
+      "purpose": "Corporis corporis ve",
       "account_type": "Premium Savings",
-      "account_number": "PR/JL/275738197",
-      "account_balance": 7,
+      "account_number": "PR/BA/125207975",
+      "account_balance": -8,
+      "createdAt": "9/19/2019, 8:50:14 PM",
       "id": 3
+    },
+    {
+      "userId": 1,
+      "account_name": "Hasad Lyons",
+      "purpose": "Id dolorum illo non ",
+      "account_type": "Premium Savings",
+      "account_number": "PR/UO/699865980",
+      "account_balance": 0,
+      "createdAt": "9/20/2019, 9:03:05 AM",
+      "id": 4
     }
   ],
   "transaction": [
     {
-      "id": 1,
-      "transaction_id": "54cabdee123bcajsai",
-      "transaction_type": "credit",
       "userId": 1,
-      "accountId": 1,
-      "amount": 2000,
-      "date": "24th August 2018, 2.03pm"
-    },
-    {
-      "id": 2,
-      "transaction_id": "5cabbwisiwazascfi",
-      "transaction_type": "debit",
-      "userId": 1,
+      "amount": 15,
       "accountId": 2,
-      "amount": 3000,
-      "date": "24th August 2018, 2.03pm"
+      "transaction_type": "credit",
+      "transaction_id": "25274233604f4895",
+      "date": "Thu Sep 19 2019",
+      "id": 1
     },
     {
-      "userId": 5,
-      "amount": 27,
-      "accountId": "3",
+      "userId": 1,
+      "amount": 46,
+      "accountId": 2,
+      "transaction_type": "debit",
+      "transaction_id": "f971e6d777990f26",
+      "date": "Thu Sep 19 2019",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "amount": 53,
+      "accountId": 2,
       "transaction_type": "credit",
-      "transaction_id": "e423e894945677d4",
-      "date": "9/18/2019, 2:43:24 PM",
+      "transaction_id": "72a467c15eea1cfd",
+      "date": "Thu Sep 19 2019",
       "id": 3
     },
     {
-      "userId": 5,
-      "amount": 20,
-      "accountId": "3",
-      "transaction_type": "debit",
-      "transaction_id": "7ed80694c94851b2",
-      "date": "Wed Sep 18 2019",
+      "userId": 3,
+      "amount": 46,
+      "accountId": 3,
+      "transaction_type": "credit",
+      "transaction_id": "9ae1a24d218d68c8",
+      "date": "Thu Sep 19 2019",
       "id": 4
     },
     {
-      "userId": 1,
-      "amount": 8,
-      "accountId": "1",
-      "transaction_type": "debit",
-      "transaction_id": "edf7f9f89dcdd5a0",
-      "date": "Wed Sep 18 2019",
+      "userId": 3,
+      "amount": 74,
+      "accountId": 3,
+      "transaction_type": "credit",
+      "transaction_id": "b35abb98a968ca65",
+      "date": "Thu Sep 19 2019",
       "id": 5
+    },
+    {
+      "userId": 3,
+      "amount": 98,
+      "accountId": 3,
+      "transaction_type": "debit",
+      "transaction_id": "c92c62987e9def60",
+      "date": "Thu Sep 19 2019",
+      "id": 6
+    },
+    {
+      "userId": 3,
+      "amount": 30,
+      "accountId": 3,
+      "transaction_type": "debit",
+      "transaction_id": "7874db03e4e9089f",
+      "date": "Thu Sep 19 2019",
+      "id": 7
     }
   ]
 }

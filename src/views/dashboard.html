@@ -23,7 +23,8 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link clickable" onclick="viewAllAccounts()" href="" data-toggle="modal"
+              data-target="#viewAcctModal">
               <div class="mx-auto d-block">
                 <span>Wallet Balance: </span> <span class="font-weight-bold text-success">&#8358;</span> <span
                   class="font-weight-bold text-success" id="walletBalance">0</span>
@@ -90,8 +91,8 @@
                   <img src="../images/svg/transaction.svg" class="img-fluid " width="50" height="50">
                 </div>
                 <h3 class="text-center p-2">All Transactions</h3>
-                <button data-toggle="modal" data-target="#transactionModal"
-                  class="btn view-transaction btn-md p-2">View</button>
+                <button data-toggle="modal" data-target="#transactionModal" class="btn view-transaction btn-md p-2"
+                  onclick="allTransactions('all')">View</button>
               </div>
             </div>
           </div>
@@ -123,24 +124,16 @@
             <div class="form-group">
               <label for="update_account_type">Select Account</label>
               <select class="form-control" id="update_account_type">
-                <option>School fees</option>
-                <option>House rent</option>
+                <option value="">Select Account</option>
               </select>
             </div>
           </form>
           <!-- partial hidden tabs -->
-          <div class="mt-2 d-none">
+          <div id="partial-display" class="mt-2 d-none">
             <form>
               <div class="form-group">
                 <label for="purpose">Account Name</label>
                 <input class="form-control" id="update_account_name" value="School fees" />
-              </div>
-              <div class="form-group">
-                <label for="update_account_type">Account Type</label>
-                <select class="form-control" id="update_account_type">
-                  <option>Savings</option>
-                  <option>Premium Savings</option>
-                </select>
               </div>
               <div class="form-group">
                 <label for="update_purpose">Account Purpose</label>
@@ -151,7 +144,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-success">
+          <button class="btn btn-success" onclick="updateAcct()">
             Update <i class="fas fa-pencil-alt ml-1"></i>
           </button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -190,7 +183,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-danger" onclick="createAccount()">
+          <button type="button" class="btn btn-danger" onclick="createAccount()">
             Create <i class="fas fa-plus"></i>
           </button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -249,7 +242,6 @@
             <div class="form-group">
               <label for="withdraw_account_name">Account Name</label>
               <select class="form-control" id="withdraw_account_name">
-
               </select>
             </div>
             <div class="form-group">
@@ -270,7 +262,7 @@
   <!--Transaction Modal -->
   <div class="modal fade" id="transactionModal" tabindex="-1" role="dialog" aria-labelledby="transactionModal"
     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalCenterTitle">Transactions</h5>
@@ -278,15 +270,18 @@
             <img src="../images/svg/error.svg" class="img-fluid" width="20" height="20" alt="">
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body parent">
+          <span class="children"></span>
           <nav class="success">
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
               <a class="nav-item nav-link active m-2" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
-                aria-controls="nav-home" aria-selected="true" onclick="loadAllTransactions()">All Transactions</a>
+                aria-controls="nav-home" aria-selected="true" onclick="allTransactions('all')">All Transactions</a>
               <a class="nav-item nav-link m-2" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
-                aria-controls="nav-profile" aria-selected="false">Credit Transaction</a>
+                aria-controls="nav-profile" aria-selected="false" onclick="allTransactions('credit')">Credit
+                Transaction</a>
               <a class="nav-item nav-link m-2" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
-                aria-controls="nav-contact" aria-selected="false">Debit Transactions</a>
+                aria-controls="nav-contact" aria-selected="false" onclick="allTransactions('debit')">Debit
+                Transactions</a>
             </div>
           </nav>
           <div class="tab-content" id="nav-tabContent">
@@ -303,29 +298,6 @@
                   </tr>
                 </thead>
                 <tbody id="alltransaction">
-                  <tr>
-                    <td scope="row">54cabdee123bcajsai</td>
-                    <td>School Fees</td>
-                    <td>Debit</td>
-                    <td class="text-danger">50000</td>
-                    <td>Sept 19 2019, 2:01pm</td>
-                    <td>
-                      <i class="far fa-trash-alt clickable text-danger" data-toggle="tooltip" data-placement="right"
-                        title="Delete Transaction"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">54cabdee123bcajsai</th>
-                    <td>School Fees</td>
-                    <td>Credit</td>
-                    <td class="text-success">50000</td>
-                    <td>Sept 19 2019, 2:01pm</td>
-                    <td>
-                      <i class="far fa-trash-alt clickable text-danger" data-toggle="tooltip" data-placement="right"
-                        title="Delete Transaction"></i>
-                    </td>
-                  </tr>
-
                 </tbody>
               </table>
 
@@ -342,30 +314,7 @@
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">54cabdee123bcajsai</th>
-                    <td>School Fees</td>
-                    <td>Credit</td>
-                    <td class="text-success">50000</td>
-                    <td>Sept 19 2019, 2:01pm</td>
-                    <td>
-                      <i class="far fa-trash-alt clickable text-danger" data-toggle="tooltip" data-placement="right"
-                        title="Delete Transaction"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">54cabdee123bcajsai</th>
-                    <td>School Fees</td>
-                    <td>Credit</td>
-                    <td class="text-success">50000</td>
-                    <td>Sept 19 2019, 2:01pm</td>
-                    <td>
-                      <i class="far fa-trash-alt clickable text-danger" data-toggle="tooltip" data-placement="right"
-                        title="Delete Transaction"></i>
-                    </td>
-                  </tr>
-
+                <tbody id="creditTransaction">
                 </tbody>
               </table>
 
@@ -382,39 +331,51 @@
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">54cabdee123bcajsai</th>
-                    <td>School Fees</td>
-                    <td>Debit</td>
-                    <td class="text-danger">50000</td>
-                    <td>Sept 19 2019, 2:01pm</td>
-                    <td>
-                      <i class="far fa-trash-alt clickable text-danger" data-toggle="tooltip" data-placement="right"
-                        title="Delete Transaction"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">54cabdee123bcajsai</th>
-                    <td>School Fees</td>
-                    <td>Debit</td>
-                    <td class="text-danger">50000</td>
-                    <td>Sept 19 2019, 2:01pm</td>
-                    <td>
-                      <i class="far fa-trash-alt clickable text-danger" data-toggle="tooltip" data-placement="right"
-                        title="Delete Transaction"></i>
-                    </td>
-                  </tr>
-
+                <tbody id="debitTransaction">
                 </tbody>
               </table>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-
           <span class="text-danger clickable" data-dismiss="modal"><img src="../images/svg/left-arrow.svg" alt=""
               class="img-fluid" width="20" height="20"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--View Account Modal -->
+  <div class="modal fade" id="viewAcctModal" tabindex="-1" role="dialog" aria-labelledby="viewAcctModal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Accounts</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;">
+            <img src="../images/svg/error.svg" class="img-fluid" width="20" height="20" alt="">
+          </button>
+        </div>
+        <div class="modal-body parent">
+          <span class="children"></span>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">S/N</th>
+                <th scope="col">Account Name</th>
+                <th scope="col">Account Number</th>
+                <th scope="col">Account Type</th>
+                <th scope="col">Purpose</th>
+                <th scope="col">Balance</th>
+                <th scope="col">Date Created</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="allaccount">
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <h3><span>&#8358; </span><span id="total"></span></h3>
         </div>
       </div>
     </div>
